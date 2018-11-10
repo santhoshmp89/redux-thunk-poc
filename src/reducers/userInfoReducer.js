@@ -1,7 +1,8 @@
 const initialState = {
   data: {},
   isFetching: false,
-  isError: false
+  isError: false,
+  errorMessage: ""
 };
 
 const userInfo = (state = initialState, action) => {
@@ -18,6 +19,7 @@ const userInfo = (state = initialState, action) => {
     case "RECIEVED_ERROR":
       return {
         ...state,
+        errorMessage: action.value,
         isFetching: false,
         isError: true
       };

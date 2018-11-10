@@ -25,7 +25,9 @@ class Homepage extends React.Component {
             <Col classNames="col-sm-6">
               <br />
               {this.props.userInfo.isFetching && <h2>Loading...</h2>}
-              {this.props.userInfo.isError && <h2>Error Found</h2>}
+              {this.props.userInfo.isError && (
+                <h2>Error Found {this.props.userInfo.errorMessage}</h2>
+              )}
               {Object.keys(this.props.userInfo.data).length > 0 ? (
                 <CardWithImage
                   title="Profile Info"

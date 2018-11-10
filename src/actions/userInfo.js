@@ -13,9 +13,10 @@ const get_user = val => {
   };
 };
 
-const recieved_error = () => {
+const recieved_error = error => {
   return {
-    type: "RECIEVED_ERROR"
+    type: "RECIEVED_ERROR",
+    value: error
   };
 };
 
@@ -33,9 +34,9 @@ const get_user_info = () => {
       })
       .catch(error => {
         console.log(error);
-        dispatch(recieved_error());
+        dispatch(recieved_error(error.message));
       });
   };
 };
 
-export { get_user_info, fetch_user, get_user, recieved_error };
+export { get_user_info };
